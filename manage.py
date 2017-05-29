@@ -1,5 +1,6 @@
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
 from gunicorn.app.base import Application
 from app import create_app, db
 import os
@@ -7,6 +8,7 @@ import os
 app = create_app(os.getenv('FLASK_CONFIG', 'default'))
 manager = Manager(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 class GunicornApplication(Application):
     def init(self, parser, opts, args):
