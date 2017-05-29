@@ -14,6 +14,7 @@ db = SQLAlchemy()
 def create_app(name):
     app = Flask(__name__)
     app.config.from_object(configs[name])
+    app.config['SECRET_KEY'] = 'this is from Starry_sky_'
 
     db.init_app(app)
 
